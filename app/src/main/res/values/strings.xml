@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">lesson4</string>
+    <string name="app_name">SimpleRSSReader</string>
+    <string name="title_activity_rssreader">RSSReaderActivity</string>
+    <string name="button_text">Read!</string>
+    <string name="rss_text">RSS thread:</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_text">enter address</string>
+    <string name="default_address">https://news.yandex.ru/world.rss</string>
+
 </resources>
