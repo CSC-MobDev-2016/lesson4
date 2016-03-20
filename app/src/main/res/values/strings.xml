@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">lesson4</string>
+    <string name="app_name">Simple RSS Reader</string>
+    <string name="go_button_text">GO</string>
+    <string name="enter_channel_url">Enter channel URL</string>
+    <string name="error_title">Error</string>
+    <string name="OK">OK</string>
+    <string name="parse_error">Failed to parse RSS. Probably wrong url.</string>
+    <string name="no_connection_error">No Internet connection.</string>
+    <string name="unknown_error">Something went wrong...</string>
 </resources>

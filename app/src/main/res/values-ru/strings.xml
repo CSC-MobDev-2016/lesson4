@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Простая читалка RSS</string>
+    <string name="go_button_text">Вперед</string>
+    <string name="enter_channel_url">Введите URL канала</string>
+    <string name="error_title">Error</string>
+    <string name="OK">OK</string>
+    <string name="no_connection_error">Нет подключения к интернету</string>
+    <string name="parse_error">Не удалось распознать RSS. Возможно, введен неверный URL.</string>
+    <string name="unknown_error">Что-то пошло не так...</string>
+</resources>
