@@ -5,8 +5,8 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.csc.lesson4"
-        minSdkVersion 15
+        applicationId "com.csc.telezhnaya.rss"
+        minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
