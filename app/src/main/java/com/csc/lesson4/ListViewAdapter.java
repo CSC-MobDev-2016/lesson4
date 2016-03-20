@@ -24,10 +24,7 @@ public class ListViewAdapter extends ArrayAdapter<Article> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Article article = getItem(position);
 
-        //if (convertView == null) {
-        //    convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_layout, parent, false);
-        //}
-        ViewHolder viewHolder; // view lookup cache stored in tag
+        ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());

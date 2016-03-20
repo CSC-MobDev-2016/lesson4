@@ -1,8 +1,10 @@
 package com.csc.lesson4;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -16,29 +18,45 @@ public class ListActivity extends AppCompatActivity{
 
     ArrayList<Article> articles = new ArrayList<>();
     String[] columnNames = {"title", "date", "text"};
-    private static String url = "";
+    ListView listView;
+    ListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.list_activity);
-        url = getIntent().getStringExtra(MainActivity.URL);
-        ArrayList<Article> articles = new ArrayList<>();
+        String url = getIntent().getStringExtra(MainActivity.URL);
+        listView = (ListView) findViewById(R.id.listView);
+        Context context = this;
+        getArticles(url, context);
 
-        try {
-            Cursor cursor = getContentResolver().query(Uri.parse(RSSContentProvider.uri), columnNames, url, null, null, null);
+    }
 
-            while (cursor.moveToNext()) {
-                Article article = new Article();
-                article.setData(cursor);
-                articles.add(article);
+    private void getArticles(String url, final Context context) {
+        new AsyncTask<String, Void, ArrayList<Article>>() {
+            @Override
+            protected void onPostExecute(ArrayList<Article> result) {
+                super.onPostExecute(result);
+                articles = result;
+                adapter = new ListViewAdapter(context, result);
+                listView.setAdapter(adapter);
             }
-            cursor.close();
-        } catch (Exception e) {}
+            @Override
+            protected ArrayList<Article> doInBackground(String... params) {
+                ArrayList<Article> articleList = new ArrayList<>();
+                try {
+                    Cursor cursor = getContentResolver().query(Uri.parse(RSSContentProvider.uri), columnNames, params[0], null, null, null);
 
-        ListView listView = (ListView) findViewById(R.id.listView);
-        ListViewAdapter adapter = new ListViewAdapter(this, articles);
-        listView.setAdapter(adapter);
+                    while (cursor.moveToNext()) {
+                        Article article = new Article();
+                        article.setData(cursor);
+                        articleList.add(article);
+                    }
+                    cursor.close();
+                } catch (Exception e) {}
+                return articleList;
+            }
+        }.execute(url);
     }
 }
