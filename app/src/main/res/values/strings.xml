@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">lesson4</string>
+    <string name="app_name">RSSReader</string>
+    <string name="default_str">https://news.yandex.ru/internet.rss</string>
 </resources>
