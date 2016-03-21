@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RSS читалка</string>
+    <string name="go_button_text">ГОТОВО</string>
+</resources>
