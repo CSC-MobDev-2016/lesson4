@@ -1,4 +1,4 @@
-package com.csc.lesson4;
+package com.csc.roman_fedorov.lesson4;
 
 import android.content.Intent;
 import android.database.MatrixCursor;

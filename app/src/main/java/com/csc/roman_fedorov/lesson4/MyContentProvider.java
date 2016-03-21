@@ -1,4 +1,4 @@
-package com.csc.lesson4;
+package com.csc.roman_fedorov.lesson4;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -7,7 +7,7 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 
 public class MyContentProvider extends ContentProvider {
-    public static final Uri URI = Uri.parse("content://" + "com.csc.lesson4.provider1");
+    public static final Uri URI = Uri.parse("content://" + "com.csc.roman_fedorov.lesson4.provider1");
 
     public MyContentProvider() {
     }

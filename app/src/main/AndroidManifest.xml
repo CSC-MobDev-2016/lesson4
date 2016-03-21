@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.csc.lesson4">
+    package="com.csc.roman_fedorov.lesson4">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -21,7 +21,7 @@
 
         <provider
             android:name=".MyContentProvider"
-            android:authorities="com.csc.lesson4.provider1"
+            android:authorities="com.csc.roman_fedorov.lesson4.provider1"
             android:enabled="true"
             android:exported="false"></provider>
     </application>
