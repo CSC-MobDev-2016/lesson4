@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">RSS Reader</string>
     <string name="go_button_name">GO</string>
-    <string name="address_hint">Enter RSS link</string>
+    <string name="address_hint">Enter RSS address</string>
 </resources>

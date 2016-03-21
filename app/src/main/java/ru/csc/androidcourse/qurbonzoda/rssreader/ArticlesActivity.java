@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -35,7 +34,6 @@ public class ArticlesActivity extends AppCompatActivity {
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
         @Override
         protected ArrayList<Article> doInBackground(String... params) {
-            Log.d(TAG, "doInBackground");
             ArrayList<Article> articleList = new ArrayList<>();
             Cursor cursor = null;
             try {
@@ -55,7 +53,6 @@ public class ArticlesActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<Article> result) {
             super.onPostExecute(result);
-            Log.d(TAG, "onPostExecute");
             articleList = result;
             listView.setAdapter(new ArticleViewAdapter(getApplicationContext(), articleList));
         }

@@ -5,15 +5,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RSSContentProvider extends ContentProvider {
@@ -52,7 +48,6 @@ public class RSSContentProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
         // TODO: Implement this to handle query requests from clients.
 
-        Log.d("query", selection);
         MatrixCursor cursor = new MatrixCursor(projection);
 
         try {
@@ -83,6 +78,7 @@ public class RSSContentProvider extends ContentProvider {
                         String attribute = projection[i];
                         if (name.equalsIgnoreCase(attribute)) {
                             row[i] = xpp.nextText();
+                            break;
                         }
 
                     }
@@ -95,7 +91,6 @@ public class RSSContentProvider extends ContentProvider {
             }
 
         } catch (Exception ignored) {
-            Log.d("query", "Exception: " + ignored.getMessage());
         }
 
         return cursor;

@@ -1,7 +1,6 @@
 package ru.csc.androidcourse.qurbonzoda.rssreader;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +15,11 @@ import java.util.ArrayList;
 public class ArticleViewAdapter extends ArrayAdapter<Article> {
     public ArticleViewAdapter(Context context, ArrayList<Article> articles) {
         super(context, 0, articles);
-        //Log.d(TAG, TAG + " constructor");
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Article article = getItem(position);
-        //Log.d(TAG, "getView " + position);
 
         ViewHolder viewHolder;
         if (convertView == null) {

@@ -1,7 +1,6 @@
 package ru.csc.androidcourse.qurbonzoda.rssreader;
 
 import android.database.Cursor;
-import android.util.Log;
 
 /**
  * Created by qurbonzoda on 21.03.16.
@@ -19,7 +18,6 @@ public class Article {
         this.pubDate = pubDate;
         this.title = title;
         this.description = description;
-        Log.d(TAG, pubDate + " " + title + " " + description);
     }
 
     public Article(Cursor cursor) {
