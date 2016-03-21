@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 
-import com.csc.malinovsky239.R;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override

@@ -7,8 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.csc.malinovsky239.R;
-
 import java.util.ArrayList;
 
 public class TitlesList extends ActionBarActivity {
