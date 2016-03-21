@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.csc.lesson4">
+    package="ru.csc.androidcourse.qurbonzoda.rssreader">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ArticlesActivity" />
+
+        <provider
+            android:name=".RSSContentProvider"
+            android:authorities="ru.csc.androidcourse.qurbonzoda.rssreader.provider"
+            android:enabled="true"
+            android:exported="true">
+        </provider>
     </application>
 
 </manifest>
