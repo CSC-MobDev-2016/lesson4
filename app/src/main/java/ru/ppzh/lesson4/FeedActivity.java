@@ -2,7 +2,6 @@ package ru.ppzh.lesson4;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,9 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class FeedActivity extends AppCompatActivity {
+    private static final String AUTHORITY = "ru.ppzh.lesson4.rss";
+
     private ListView newsList;
     private NewsAdapter adapter;
-    private MatrixCursor cursor;
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,14 @@ public class FeedActivity extends AppCompatActivity {
 
             @Override
             protected Article[] doInBackground(String... params) {
-                RssProvider provider = new RssProvider();
-                cursor = (MatrixCursor) provider.query(Uri.parse(params[0]), null, null, null, null);
-                Article[] articles = getArticles(cursor);
-                cursor.close();
+                Article[] articles;
+                try {
+                    cursor = getContentResolver().query(Uri.parse("content://" + AUTHORITY), null, params[0], null, null);
+                    articles = getArticles(cursor);
+                } finally {
+                    if (cursor != null)
+                        cursor.close();
+                }
                 return articles;
             }
 

@@ -11,7 +11,6 @@ import android.util.Log;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.net.URI;
 import java.net.URL;
 
 public class RssProvider extends ContentProvider {
@@ -34,9 +33,9 @@ public class RssProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         MatrixCursor cursor = new MatrixCursor(new String[]{TITLE, DATE, DESCRIPTION, NEWS_URL});
         String title = "", date = "", description = "", news_url = "";
-        Log.i(TAG, "uri: " + uri.toString());
+        Log.i(TAG, "uri: " + selection);
         try {
-            URL url = new URI(uri.toString()).toURL();
+            URL url = new URL(selection);
             XmlPullParser xpp = XmlPullParserFactory.newInstance().newPullParser();
             xpp.setInput(url.openStream(), null);
 
