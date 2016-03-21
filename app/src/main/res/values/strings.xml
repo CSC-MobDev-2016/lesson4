@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">lesson4</string>
+    <string name="app_name">RSS reader</string>
+    <string name="button_text">Continue</string>
+    <string name="action_settings">Settings</string>
 </resources>
