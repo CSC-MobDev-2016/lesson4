@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -15,14 +14,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        TextView textView;
-        ImageView imageView;
+        TextView textViewName;
+        TextView textViewInfo;
 
         PersonViewHolder(View itemView) {
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
-            textView = (TextView) itemView.findViewById(R.id.text_view);
-            imageView = (ImageView) itemView.findViewById(R.id.image_view);
+            textViewName = (TextView) itemView.findViewById(R.id.feed_name);
+            textViewInfo = (TextView) itemView.findViewById(R.id.feed_info);
         }
     }
 
@@ -46,7 +45,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
         Card card = cards.get(i);
-        personViewHolder.textView.setText(card.text);
+        personViewHolder.textViewName.setText(card.getName());
+        personViewHolder.textViewInfo.setText(card.getInfo());
 
     }
 

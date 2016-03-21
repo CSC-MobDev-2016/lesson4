@@ -1,13 +1,14 @@
 package com.csc.lpaina.lesson4;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.csc.lesson4.R;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ReadRssActivity extends AppCompatActivity {
+public class ReadRssActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,8 @@ public class ReadRssActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new RVAdapter(feeds));
+
+        List<Card> cards = new ArrayList<>();
+        recyclerView.setAdapter(new RVAdapter(cards));
     }
 }
