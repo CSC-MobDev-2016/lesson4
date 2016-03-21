@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">lesson4</string>
+    <string name="app_name">RSS Reader</string>
+    <string name="search_button">Find RSS</string>
+    <string name="default_rss">feedforall.com/sample.xml</string>
 </resources>
