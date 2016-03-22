@@ -25,7 +25,8 @@
             android:layout_weight="1"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:hint="@string/rss_hint" />
 
         <Button
             android:id="@+id/rss_button"

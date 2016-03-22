@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        //boolean hasError = intent.getBooleanExtra(ERROR_TAG, false);
+        boolean hasError = intent.getBooleanExtra(ERROR_TAG, false);
 
         setContentView(R.layout.main_activity);
         Button button = (Button) findViewById(R.id.rss_button);
@@ -27,16 +27,20 @@ public class MainActivity extends Activity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String query = editText != null ? editText.getText().toString() : null;
+                    String query = editText.getText().toString();
+                    if (!query.startsWith("http://")) {
+                        query = "http://" + query;
+                    }
                     Intent intentForward = new Intent(getApplicationContext(), ReadRssActivity.class);
                     intentForward.putExtra(QUERY_TAG, query);
                     startActivity(intentForward);
                 }
             });
         }
-        /*if (hasError){
+        if (hasError) {
             TextView textHint = (TextView) findViewById(R.id.text_hint);
             textHint.setText(R.string.error_hint);
-        }*/
+        }
+
     }
 }
