@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import hugo.weaving.DebugLog;
 
+@DebugLog
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {

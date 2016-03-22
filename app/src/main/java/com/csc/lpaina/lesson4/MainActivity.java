@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
-    private static final String QUERY_TAG = "QUERY";
+    public static final String QUERY_TAG = "QUERY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
