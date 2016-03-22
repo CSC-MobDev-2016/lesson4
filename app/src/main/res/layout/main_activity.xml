@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <LinearLayout
         android:id="@+id/search_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical">
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/rss_query"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:singleLine="true"
+            android:imeOptions="actionSearch"
             android:inputType="text"
-            android:imeOptions="actionSearch" />
+            android:singleLine="true" />
 
         <Button
             android:id="@+id/rss_button"
@@ -25,6 +33,5 @@
             android:layout_height="wrap_content"
             android:text="@string/search_action" />
     </LinearLayout>
+</LinearLayout>
 
-
-</FrameLayout>

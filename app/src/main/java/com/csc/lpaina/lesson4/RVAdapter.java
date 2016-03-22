@@ -16,14 +16,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
-        TextView textViewName;
-        TextView textViewInfo;
+        TextView textViewTitle;
+        TextView textViewDescription;
+        TextView textViewChannel;
+        TextView textViewLink;
 
         PersonViewHolder(View itemView) {
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
-            textViewName = (TextView) itemView.findViewById(R.id.feed_name);
-            textViewInfo = (TextView) itemView.findViewById(R.id.feed_info);
+            textViewTitle = (TextView) itemView.findViewById(R.id.feed_title);
+            textViewDescription = (TextView) itemView.findViewById(R.id.feed_description);
+            textViewChannel = (TextView) itemView.findViewById(R.id.feed_channel);
+            textViewLink = (TextView) itemView.findViewById(R.id.feed_link);
         }
     }
 
@@ -47,8 +51,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
         Card card = cards.get(i);
-        personViewHolder.textViewName.setText(card.getName());
-        personViewHolder.textViewInfo.setText(card.getInfo());
+        personViewHolder.textViewTitle.setText(card.getTitle());
+        personViewHolder.textViewDescription.setText(card.getDescription());
+        personViewHolder.textViewChannel.setText(card.getChannel());
+        personViewHolder.textViewLink.setText(card.getLink());
 
     }
 

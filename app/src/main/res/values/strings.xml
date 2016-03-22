@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">lesson4</string>
     <string name="search_action">Search</string>
+    <string name="error_hint">Cannor get rss feed from the address. Please try again</string>
 </resources>

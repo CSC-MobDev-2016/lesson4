@@ -1,26 +1,56 @@
 package com.csc.lpaina.lesson4;
 
 public class Card {
-    private String name, info;
+    private String title;
+    private String description;
+    private String channel;
+    private String link;
 
-    public String getName() {
-        return name;
+    public Card() {
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Card(String title, String description, String channel, String link) {
+        this.title = title;
+        this.description = description;
+        this.channel = channel;
+        this.link = link;
     }
 
-    public String getInfo() {
-        return info;
+    @Override
+    protected Card clone() {
+        return new Card(title, description, channel, link);
     }
 
-    public void setInfo(String info) {
-        this.info = info;
+    public String getTitle() {
+        return title;
     }
 
-    public Card(String name, String info) {
-        this.name = name;
-        this.info = info;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
