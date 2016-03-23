@@ -76,4 +76,5 @@ class RSSParserTask extends AsyncTask<String, Void, List<Card>> {
 
         return cards;
     }
+
 }

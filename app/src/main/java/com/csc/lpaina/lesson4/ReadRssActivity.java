@@ -51,4 +51,5 @@ public class ReadRssActivity extends Activity {
 
         recyclerView.setAdapter(new RVAdapter(cards));
     }
+
 }

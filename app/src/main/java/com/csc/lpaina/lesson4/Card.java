@@ -54,4 +54,5 @@ public class Card implements Cloneable {
     public void setLink(String link) {
         this.link = link;
     }
+
 }
