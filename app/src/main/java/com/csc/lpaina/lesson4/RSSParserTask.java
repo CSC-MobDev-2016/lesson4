@@ -15,6 +15,9 @@ import java.util.List;
 import hugo.weaving.DebugLog;
 
 class RSSParserTask extends AsyncTask<String, Void, List<Card>> {
+
+    private static final String TAG = "RSSParserTask";
+
     @Override
     @DebugLog
     protected List<Card> doInBackground(String... params) {
@@ -71,7 +74,7 @@ class RSSParserTask extends AsyncTask<String, Void, List<Card>> {
             }
 
         } catch (XmlPullParserException | IOException | CloneNotSupportedException e) {
-            Log.e("RSSParserTask", "doInBackground: ", e);
+            Log.e(TAG, "doInBackground: ", e);
         }
 
         return cards;

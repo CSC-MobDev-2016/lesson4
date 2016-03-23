@@ -16,6 +16,8 @@ public class MainActivity extends Activity {
 
     public static final String QUERY_TAG = "QUERY";
     public static final String ERROR_TAG = "ERROR";
+    private static final String HTTP_PREFIX = "http://";
+    public static final String HTTPS_PREFIX = "https://";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,8 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     String query = editText.getText().toString();
-                    if (!(query.startsWith("http://") || query.startsWith("https://"))) {
-                        query = "http://" + query;
+                    if (!(query.startsWith(HTTP_PREFIX) || query.startsWith(HTTPS_PREFIX))) {
+                        query = HTTP_PREFIX + query;
                     }
                     Intent intentForward = new Intent(getApplicationContext(), ReadRssActivity.class);
                     intentForward.putExtra(QUERY_TAG, query);

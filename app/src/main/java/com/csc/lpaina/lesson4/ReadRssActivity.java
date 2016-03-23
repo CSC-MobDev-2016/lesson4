@@ -17,6 +17,8 @@ import hugo.weaving.DebugLog;
 
 public class ReadRssActivity extends Activity {
 
+    private static final String TAG = "ReadRssActivity";
+
     @Override
     @DebugLog
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class ReadRssActivity extends Activity {
         try {
             cards = task.get(5, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
-            Log.e("ReadRssActivity", "onCreate: ", e);
+            Log.e(TAG, "onCreate: ", e);
         }
 
         if (cards == null || cards.isEmpty()) {
