@@ -1,7 +1,10 @@
 package com.csc.lpaina.lesson4;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +24,16 @@ public class MainActivity extends Activity {
         boolean hasError = intent.getBooleanExtra(ERROR_TAG, false);
 
         setContentView(R.layout.main_activity);
-        Button button = (Button) findViewById(R.id.rss_button);
+        final TextView textHint = (TextView) findViewById(R.id.text_hint);
+        final Button button = (Button) findViewById(R.id.rss_button);
         final EditText editText = (EditText) findViewById(R.id.rss_query);
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+        if (activeNetwork == null || !activeNetwork.isConnectedOrConnecting()) {
+            hasError = true;
+        }
+
         if (button != null) {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -38,8 +49,14 @@ public class MainActivity extends Activity {
             });
         }
         if (hasError) {
-            TextView textHint = (TextView) findViewById(R.id.text_hint);
-            textHint.setText(R.string.error_hint);
+            activeNetwork = connectivityManager.getActiveNetworkInfo();
+            if (activeNetwork == null || !activeNetwork.isConnectedOrConnecting()) {
+                textHint.setText(R.string.error_internet_hint);
+            } else {
+                textHint.setText(R.string.error_hint);
+            }
+        } else {
+            textHint.setText("");
         }
 
     }

@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import hugo.weaving.DebugLog;
 
@@ -26,12 +28,12 @@ public class ReadRssActivity extends Activity {
         task.execute(query);
         List<Card> cards = null;
         try {
-            cards = task.get();
-        } catch (InterruptedException | ExecutionException e) {
+            cards = task.get(5, TimeUnit.SECONDS);
+        } catch (InterruptedException | ExecutionException | TimeoutException e) {
             Log.e("ReadRssActivity", "onCreate: ", e);
         }
 
-        if (cards == null) {
+        if (cards == null || cards.isEmpty()) {
             Intent intentReturn = new Intent(this, MainActivity.class);
             intentReturn.putExtra(MainActivity.ERROR_TAG, true);
             startActivity(intentReturn);
