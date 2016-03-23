@@ -1,6 +1,5 @@
 package com.csc.lpaina.lesson4;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,24 +13,7 @@ import hugo.weaving.DebugLog;
 @DebugLog
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
-        TextView textViewTitle;
-        TextView textViewDescription;
-        TextView textViewChannel;
-        TextView textViewLink;
-
-        PersonViewHolder(View itemView) {
-            super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.card_view);
-            textViewTitle = (TextView) itemView.findViewById(R.id.feed_title);
-            textViewDescription = (TextView) itemView.findViewById(R.id.feed_description);
-            textViewChannel = (TextView) itemView.findViewById(R.id.feed_channel);
-            textViewLink = (TextView) itemView.findViewById(R.id.feed_link);
-        }
-    }
-
-    List<Card> cards;
+    private final List<Card> cards;
 
     RVAdapter(List<Card> cards) {
         this.cards = cards;
@@ -58,8 +40,19 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     }
 
-    @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
+    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+        final TextView textViewTitle;
+        final TextView textViewDescription;
+        final TextView textViewChannel;
+        final TextView textViewLink;
+
+        PersonViewHolder(View itemView) {
+            super(itemView);
+            textViewTitle = (TextView) itemView.findViewById(R.id.feed_title);
+            textViewDescription = (TextView) itemView.findViewById(R.id.feed_description);
+            textViewChannel = (TextView) itemView.findViewById(R.id.feed_channel);
+            textViewLink = (TextView) itemView.findViewById(R.id.feed_link);
+        }
     }
+
 }

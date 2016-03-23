@@ -1,6 +1,6 @@
 package com.csc.lpaina.lesson4;
 
-public class Card {
+public class Card implements Cloneable {
     private String title;
     private String description;
     private String channel;
@@ -18,7 +18,8 @@ public class Card {
     }
 
     @Override
-    protected Card clone() {
+    protected Card clone() throws CloneNotSupportedException {
+        super.clone();
         return new Card(title, description, channel, link);
     }
 

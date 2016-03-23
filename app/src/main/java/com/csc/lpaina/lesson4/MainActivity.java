@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     String query = editText.getText().toString();
-                    if (!query.startsWith("http://")) {
+                    if (!(query.startsWith("http://") || query.startsWith("https://"))) {
                         query = "http://" + query;
                     }
                     Intent intentForward = new Intent(getApplicationContext(), ReadRssActivity.class);

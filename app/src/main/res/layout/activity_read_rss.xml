@@ -11,9 +11,9 @@
     tools:context="com.csc.lesson3.ResultsActivity">
 
     <TextView
+        android:id="@+id/rss_feed_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rss_feed_name"
         android:textSize="20sp"
         android:textStyle="bold" />
 

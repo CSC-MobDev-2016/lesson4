@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.csc.lpaina.lesson4.ReadRssActivity"></activity>
+        <activity android:name="com.csc.lpaina.lesson4.ReadRssActivity" />
     </application>
 
 </manifest>
