@@ -16,8 +16,8 @@ public class MainActivity extends Activity {
 
     public static final String QUERY_TAG = "QUERY";
     public static final String ERROR_TAG = "ERROR";
-    private static final String HTTP_PREFIX = "http://";
     public static final String HTTPS_PREFIX = "https://";
+    private static final String HTTP_PREFIX = "http://";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

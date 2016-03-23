@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:hint="@string/rss_hint"
             android:imeOptions="actionSearch"
-            android:inputType="text"
+            android:inputType="textUri"
             android:singleLine="true" />
 
         <Button
