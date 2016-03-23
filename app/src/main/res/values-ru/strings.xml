@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RSS Parser</string>
+    <string name="search_action">Поиск</string>
+    <string name="error_hint">Не получается получить RSS по этому адресу. Пожалуйста, попробуйте снова.</string>
+    <string name="rss_hint">https://example.com/rss</string>
+    <string name="error_internet_hint">Нет подключения к интернету. Пожалуйста, включите и попробуйте снова.</string>
+</resources>
