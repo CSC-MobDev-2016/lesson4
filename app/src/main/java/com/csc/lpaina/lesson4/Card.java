@@ -6,6 +6,12 @@ public class Card implements Cloneable {
     private String channel;
     private String link;
 
+    public static final String TITLE_NAME = "TITLE";
+    public static final String DESCRIPTION_NAME = "DESCRIPTION";
+    public static final String CHANNEL_NAME = "CHANNEL";
+    public static final String LINK_NAME = "LINK";
+    public static final String[] NAMES = new String[]{TITLE_NAME, DESCRIPTION_NAME, CHANNEL_NAME, LINK_NAME};
+
     public Card() {
 
     }

@@ -1,52 +1,54 @@
 package com.csc.lpaina.lesson4;
 
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
-
 import hugo.weaving.DebugLog;
 
 @DebugLog
-public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
+public class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
 
-    private final List<Card> cards;
+    private Cursor cursor;
 
-    RVAdapter(List<Card> cards) {
-        this.cards = cards;
+    public RVAdapter(Cursor cursor) {
+        this.cursor = cursor;
+        cursor.moveToFirst();
     }
 
     @Override
     public int getItemCount() {
-        return cards.size();
+        return cursor.getCount();
     }
 
     @Override
-    public PersonViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recyclerview_item, viewGroup, false);
-        return new PersonViewHolder(view);
+        return new CardViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-        Card card = cards.get(i);
-        personViewHolder.textViewTitle.setText(card.getTitle());
-        personViewHolder.textViewDescription.setText(card.getDescription());
-        personViewHolder.textViewChannel.setText(card.getChannel());
-        personViewHolder.textViewLink.setText(card.getLink());
+    public void onBindViewHolder(CardViewHolder cardViewHolder, int i) {
+        if (cursor.move(i)) {
+            cardViewHolder.textViewTitle.setText(cursor.getString(cursor.getColumnIndex(Card.TITLE_NAME)));
+            cardViewHolder.textViewDescription.setText(cursor.getString(cursor.getColumnIndex(Card.DESCRIPTION_NAME)));
+            cardViewHolder.textViewChannel.setText(cursor.getString(cursor.getColumnIndex(Card.CHANNEL_NAME)));
+            cardViewHolder.textViewLink.setText(cursor.getString(cursor.getColumnIndex(Card.LINK_NAME)));
+            cursor.moveToFirst();
+        }
 
     }
 
-    public static class PersonViewHolder extends RecyclerView.ViewHolder {
+    public static class CardViewHolder extends RecyclerView.ViewHolder {
         final TextView textViewTitle;
         final TextView textViewDescription;
         final TextView textViewChannel;
         final TextView textViewLink;
 
-        PersonViewHolder(View itemView) {
+        CardViewHolder(View itemView) {
             super(itemView);
             textViewTitle = (TextView) itemView.findViewById(R.id.feed_title);
             textViewDescription = (TextView) itemView.findViewById(R.id.feed_description);
