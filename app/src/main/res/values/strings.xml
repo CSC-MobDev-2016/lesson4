@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">lesson4</string>
+    <string name="app_name">RSS Parser</string>
+    <string name="search_action">Search</string>
+    <string name="error_hint">Cannot get RSS feed from the address. Please try again.</string>
+    <string name="rss_hint">https://example.com/rss</string>
+    <string name="error_internet_hint">Cannot connect to the internet. Please turn it on</string>
 </resources>
